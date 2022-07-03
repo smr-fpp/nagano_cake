@@ -10,13 +10,13 @@
           <div class="col-sm-4">
             <div class="form-group row">
             <%= f.label :（姓） ,class: "col-sm-3" %>
-            <%= f.text_field :first_name, class: "form-control col-sm-9",autofocus: true %>
+            <%= f.text_field :first_name, class: "form-control col-sm-9",autofocus: true, placeholder: "令和" %>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group row">
             <%= f.label :（名） ,class: "col-sm-3" %>
-            <%= f.text_field :last_name, class: "form-control col-sm-9",autofocus: true %>
+            <%= f.text_field :last_name, class: "form-control col-sm-9",autofocus: true, placeholder: "道子" %>
             </div>
           </div> 
       </div>
@@ -27,13 +27,13 @@
           <div class="col-sm-4">
             <div class="form-group row">
             <%= f.label :（セイ） ,class: "col-sm-4" %>
-            <%= f.text_field :first_name_kana, class: "form-control col-sm-8",autofocus: true %>
+            <%= f.text_field :first_name_kana, class: "form-control col-sm-8",autofocus: true, placeholder: "レイワ" %>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="form-group row">
             <%= f.label :（メイ） ,class: "col-sm-4" %>
-            <%= f.text_field :last_name_kana_name, class: "form-control col-sm-8",autofocus: true %>
+            <%= f.text_field :last_name_kana_name, class: "form-control col-sm-8",autofocus: true, placeholder: "ミチコ" %>
             </div>
           </div> 
       </div>
@@ -41,28 +41,28 @@
       <div class="form-group row">
           <%= f.label :メールアドレス ,class: "col-sm-4" %>
           <div class="col-sm-6">
-            <%= f.email_field :email, class: "form-control",autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, class: "form-control",autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
           </div> 
       </div>
       
       <div class="form-group row">
           <%= f.label :郵便番号（ハイフンなし） ,class: "col-sm-4" %>
           <div class="col-sm-6">
-            <%= f.text_field :postal_code, class: "form-control",autofocus: true %>
+            <%= f.text_field :postal_code, class: "form-control",autofocus: true, placeholder: "0000000" %>
           </div> 
       </div>
     
       <div class="form-group row">
           <%= f.label :住所 ,class: "col-sm-4" %>
           <div class="col-sm-6">
-            <%= f.text_field :address, class: "form-control",autofocus: true %>
+            <%= f.text_field :address, class: "form-control",autofocus: true, placeholder: "東京都渋谷区代々木神園町0-0" %>
           </div> 
       </div> 
 
       <div class="form-group row">
           <%= f.label :電話番号（ハイフンなし） ,class: "col-sm-4" %>
           <div class="col-sm-6">
-            <%= f.text_field :telephone_number, class: "form-control",autofocus: true %>
+            <%= f.text_field :telephone_number, class: "form-control",autofocus: true, placeholder: "00000000000" %>
           </div> 
       </div> 
      

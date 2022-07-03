@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
+
   namespace :admin do
-  resources :genres
+  resources :genres, :items
   end
 
   root to: 'homes#top'
   get '/about' => 'homes#about'
   
-  get "/admin/genres" => "admin/genres#index"
+ 
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
