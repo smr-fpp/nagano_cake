@@ -4,7 +4,7 @@
     <p>ジャンル一覧・追加</p>
     <div class ="row">
       
-      <%= form_with model: @genres, url: '/admin/genres', method: :post do |f| %>
+      <%= form_with model: @genre, url: '/admin/genres', method: :post do |f| %>
       <div class="form-group">
         <%= f.label :ジャンル名, class: "mr-5" %>
         <%= f.text_field :name, class: "mr-5", value: ""  %>

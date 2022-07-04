@@ -2,11 +2,11 @@
   <div class="container">
     <p>商品新規登録</p>
     
-      <%= form_with model: @items ,url: '/admin/items', method: :post do |f| %>
+      <%= form_with model: @item ,url: '/admin/items', method: :post do |f| %>
       <div class="form-group row justify-content-center">
           <%= f.label :商品画像 ,class: "col-sm-3" %>
           <div class="col-sm-8">
-            <%= f.file_field :image %>
+            <%= f.attachment_field :image %>
           </div> 
       </div>
     
@@ -47,12 +47,12 @@
           <div class="col-sm-8">
             <div class="form_check form-check-inline">
               <label>
-              <%= f.radio_button :is_active, true %>販売中
+              <%= f.radio_button :is_active, 'true' %> <%= f.label :is_active, '販売中', value: true %>
               </label>
             </div>
             <div class="form_check form-check-inline">
               <label>
-              <%= f.radio_button :is_active, false %>販売停止中
+              <%= f.radio_button :is_active, 'false' %> <%= f.label :is_active, '販売停止', value: false %>
               </label>
             </div>
           </div> 
