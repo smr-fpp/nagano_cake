@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-  resources :genres, :items
+  resources :genres, :items, :customers
   end
 
   root to: 'homes#top'

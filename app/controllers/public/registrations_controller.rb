@@ -4,15 +4,15 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
  
-  
-  def create
-  end
-  
- 
   def new
     @customer = Customer.new
   end
-
+  
+  def create
+    @customer = Customer.new(customer_session)
+    @customer.save
+    redirect_to "/"
+  end
   # POST /resource
   # def create
   #   super
