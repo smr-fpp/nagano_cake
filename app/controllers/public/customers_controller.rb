@@ -1,4 +1,4 @@
-class CustomersController < ApplicationController
+class Public::CustomersController < ApplicationController
   def show
   end
 
@@ -6,8 +6,10 @@ class CustomersController < ApplicationController
   end
   
   def new
+
   end
   
   def create
+
   end
 end

@@ -16,10 +16,10 @@
           <%= customer.id %>
         </td>
         <td>
-          <%= link_to customer.name, admin_customer_path(customer.id) %>
+          <%= link_to customer.first_name+customer.last_name, admin_customer_path(customer.id) %>
         </td>
         <td>
-          <%= customer.mail %>
+          <%= customer.email %>
         </td>
         <td>
           <% if customer.is_deleted == false %>

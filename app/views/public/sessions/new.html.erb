@@ -7,7 +7,7 @@
     </div>
     
     
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_with model: @customer, url: customer_session_path do |f| %>
       <div class="form-group row">
         <%= f.label :メールアドレス, class: "col-sm-4" %>
         <div class="col-sm-6">
