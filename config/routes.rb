@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get '/about' => 'homes#about'
-  
+  get '/customers/my_page' => 'public/customers#show'
+  get '/customers/information/edit' => 'public/customers#edit'
  
 # 顧客用
 # URL /customers/sign_in ...

@@ -1,2 +1,54 @@
-<h1>Customers#edit</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
+<div class="container">
+  
+  <p>マイページ</p>
+  <%= form_with model: current_customer, url: customer_session_path do |f| %>
+    <div class="row">
+    
+      <div class="col-10">
+        <table class="table table-borderless">
+          
+            <tr>
+              <th scope="row">氏名</th>
+              <td class="form-inline"><%= f.text_field :first_name, class: "form-control col-4 mr-5" %><%= f.text_field :last_name, class: "form-control col-4" %></td>
+            </tr>
+          
+            <tr>
+              <th scope="row">フリガナ</th>
+              <td class="form-inline"><%= f.text_field :first_name_kana, class: "form-control col-4 mr-5" %><%= f.text_field :last_name_kana, class: "form-control col-4" %></td>
+            </tr>
+
+            <tr>
+              <th scope="row">郵便番号</th>
+              <td><%= f.text_field :postal_code, class: "form-control col-4" %></td>
+            </tr>
+
+            <tr>
+              <th scope="row">住所</th>
+              <td><%= f.text_field :address, class: "form-control" %></td>
+            </tr>
+            
+            <tr>
+              <th scope="row">電話番号</th>
+              <td><%= f.text_field :telephone_number, class: "form-control col-4" %></td>
+            </tr>             
+
+            <tr>
+              <th scope="row">メールアドレス</th>
+              <td><%= f.text_field :email, class: "form-control col-4" %></td>
+            </tr> 
+            
+            <tr>
+              <th></th>
+              <td class="form-inline">
+                <%= f.submit "編集内容を保存", class: "btn btn-success mr-5" %><%= f.submit "編集内容を保存", class: "btn btn-success mr-5" %>
+              </td>
+            </tr>            
+         </table>
+       </div> 
+       <% end %>
+    </div>
+</div>
+
+
+
+

@@ -1,2 +1,66 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+<div class="container">
+  
+  <p>マイページ</p>
+  
+    <div class="row mb-3">
+      <div class="col-2">登録情報</div>
+      <%= link_to "編集する", "/customers/information/edit", class: "btn btn-success mr-5" %>
+    </div>
+      <div class="row">
+      <div class="col-10">
+        <table class="table table-bordered">
+          
+            <tr>
+              <th scope="row" style="width: 30%" class="table-secondary" >会員ID</th>
+              <td style="width: 70%"><%= current_customer.id %></td>
+            </tr>
+          
+            <tr>
+              <th scope="row" class="table-secondary">氏名</th>
+              <td><%= current_customer.first_name + " " + current_customer.last_name %></td>
+            </tr>
+          
+            <tr>
+              <th scope="row" class="table-secondary">フリガナ</th>
+              <td><%= current_customer.first_name_kana + " " + current_customer.last_name_kana %></td>
+            </tr>
+
+            <tr>
+              <th scope="row" class="table-secondary">郵便番号</th>
+              <td><%= current_customer.postal_code %></td>
+            </tr>
+
+            <tr>
+              <th scope="row" class="table-secondary">住所</th>
+              <td><%= current_customer.address %></td>
+            </tr>
+            
+            <tr>
+              <th scope="row" class="table-secondary">電話番号</th>
+              <td><%= current_customer.telephone_number %></td>
+            </tr>             
+
+            <tr>
+              <th scope="row" class="table-secondary">メールアドレス</th>
+              <td><%= current_customer.email %></td>
+            </tr> 
+            
+         </table> 
+        </div>
+      </div> 
+        <div class="row mb-3">
+          <div class="col-2">配送先</div>
+          <%= link_to "一覧を見る", "/customers/information/edit", class: "btn btn-primary mr-5" %>
+        </div>
+        <div class="row">
+          <div class="col-2">注文履歴</div>
+          <%= link_to "一覧を見る", "/customers/information/edit", class: "btn btn-primary mr-5" %>
+        </div>         
+
+        
+    
+</div>
+
+
+
+
