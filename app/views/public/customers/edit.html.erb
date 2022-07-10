@@ -1,7 +1,7 @@
 <div class="container">
   
-  <p>マイページ</p>
-  <%= form_with model: current_customer, url: customer_session_path do |f| %>
+  <p>会員情報編集</p>
+    <%= form_with model: @customer, url: customers_information_path, method: :patch do |f| %>
     <div class="row">
     
       <div class="col-10">
@@ -35,17 +35,18 @@
             <tr>
               <th scope="row">メールアドレス</th>
               <td><%= f.text_field :email, class: "form-control col-4" %></td>
-            </tr> 
+            </tr>
+            <% f.password_field :password %><% f.text_field :id %>
             
             <tr>
               <th></th>
               <td class="form-inline">
-                <%= f.submit "編集内容を保存", class: "btn btn-success mr-5" %><%= f.submit "編集内容を保存", class: "btn btn-success mr-5" %>
+                <%= f.submit "編集内容を保存", class: "btn btn-success mr-5" %><%= link_to "退会する", '/customers/quit', class: "btn btn-danger mr-5" %>
               </td>
             </tr>            
          </table>
        </div> 
-       <% end %>
+    <% end %>
     </div>
 </div>
 
