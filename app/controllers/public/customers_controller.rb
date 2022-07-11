@@ -29,7 +29,7 @@ class Public::CustomersController < ApplicationController
 
   
   def new
-
+   
   end
   
   def create
