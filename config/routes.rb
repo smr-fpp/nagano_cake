@@ -18,9 +18,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   resources :genres, :items, :customers
   end
   
-  namespace :public do
-    get '/addresses' => 'addresses#index'
-  end
+
+    get '/addresses' => 'public/addresses#index'
+    post '/addresses' => 'public/addresses#create'
+    get '/addresses/:id/edit' => 'public/addresses#edit' ,as: "address"
+    delete '/addresses/:id' => 'public/addresses#destroy', as: "destroy_address"
   
   # namespace :public do
   # resources :customers
