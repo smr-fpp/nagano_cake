@@ -22,6 +22,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get '/addresses' => 'public/addresses#index'
     post '/addresses' => 'public/addresses#create'
     get '/addresses/:id/edit' => 'public/addresses#edit' ,as: "address"
+    patch '/addresses/:id' => 'public/addresses#update', as: "update_address"
     delete '/addresses/:id' => 'public/addresses#destroy', as: "destroy_address"
   
   # namespace :public do
