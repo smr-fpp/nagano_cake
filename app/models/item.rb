@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :genre, foreign_key: "genre_id"
+  has_many :cart_items
   attachment :image
   
   validates :name, presence: true
