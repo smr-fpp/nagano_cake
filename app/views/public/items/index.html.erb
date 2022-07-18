@@ -39,7 +39,7 @@
             <%= link_to attachment_image_tag(item, :image, format: 'jpeg'), item_show_path(item.id) %></br>
         
             <%= item.name %></br>
-            <%= "￥"+(item.price*1.1).floor.to_s(:delimited, delimiter: ',') %>
+            <%= "￥"+item.with_tax_price.to_s(:delimited, delimiter: ',') %>
           </div>
         
       

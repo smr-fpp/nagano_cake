@@ -9,4 +9,8 @@ class Item < ApplicationRecord
   validates :genre_id, presence: true
   validates :is_active, inclusion: {in: [true, false]}
   
+  def with_tax_price
+      (price * 1.1).floor
+  end
+  
 end
