@@ -36,11 +36,11 @@
       <div class="col-sm-9">
         <h3><%= @item.name %></h3>
         <%= @item.introduction %><br><br><br>
-        <span><h4 style="display: inline-block"><%= "¥"+(@item.price*1.1).round.to_s(:delimited, delimiter: ',') %></h4><small> (税込)</small></span><br><br>
-          <%= form_with model: @aacart_items do |f| %>
+        <span><h4 style="display: inline-block"><%= "¥"+(@item.price*1.1).floor.to_s(:delimited, delimiter: ',') %></h4><small> (税込)</small></span><br><br>
+          <%= form_with model: @cart_item, url: cart_items_path do |f| %>
         
-             
-             <%= f.select :amount, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "個数選択", class: "form-select" %>
+             <%= f.hidden_field :item_id, value: @item.id %>
+             <%= f.select :amount, *[1..5], include_blank: "個数選択", class: "form-select" %>
         
              <%= f.submit 'カートに入れる', class: "btn btn-success btn-sm ml-5" %>
           <% end %>
