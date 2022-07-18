@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
@@ -18,11 +19,14 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   resources :genres, :items, :customers
   end
   
+  namespace :public do
+    resources :orders
+  end
 
     get '/cart_items' => 'public/cart_items#index'
     post '/cart_items' => 'public/cart_items#create'
     delete 'cart_items/:id' => 'public/cart_items#destroy', as: "destroy_cart_item"
-    delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all', as: "destroy_all_cart_item"
+    delete 'destroy_all' => 'public/cart_items#destroy_all', as: "destroy_all_cart_item"
     get '/items' => 'public/items#index'
     get '/items/:id' => 'public/items#show', as: "item_show"
 
