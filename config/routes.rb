@@ -19,9 +19,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   resources :genres, :items, :customers
   end
   
-  namespace :public do
-    resources :orders
-  end
+  
+    get '/orders/new' => 'public/orders#new'
+    post '/orders/confirm' => 'public/orders#confirm'
+    
 
     get '/cart_items' => 'public/cart_items#index'
     post '/cart_items' => 'public/cart_items#create'
