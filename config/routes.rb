@@ -20,14 +20,14 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   end
   
   
-    get '/orders/new' => 'public/orders#new'
-    post '/orders/confirm' => 'public/orders#confirm'
-    
+    get '/orders/new' => 'public/orders#new', as: "orders_new"
+    post '/orders/confirm' => 'public/orders#confirm', as: "orders_confirm"
 
     get '/cart_items' => 'public/cart_items#index'
     post '/cart_items' => 'public/cart_items#create'
     delete 'cart_items/:id' => 'public/cart_items#destroy', as: "destroy_cart_item"
     delete 'destroy_all' => 'public/cart_items#destroy_all', as: "destroy_all_cart_item"
+    patch '/cart_items/:id' => 'public/cart_items#update', as: "update_cart_item"
     get '/items' => 'public/items#index'
     get '/items/:id' => 'public/items#show', as: "item_show"
 
