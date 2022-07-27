@@ -1,4 +1,4 @@
-<%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
+<%= form_with model: @order, url: orders_confirm_path(@order), method: :post do |f| %>
 <div class="container">
   
   <p>注文情報入力</p>
@@ -21,7 +21,7 @@
     <strong><p>お届け先</p></strong>
       
       <label class="form-check-label ml-3">
-        <%= f.radio_button :select_address, :'0' %>
+        <%= f.radio_button :select_address, '0' %>
         <%= "ご自身の住所" %></br>
         <dev class="ml-4"><%= current_customer.postal_code %> <%= current_customer.address %></dev>
         <dev class="ml-4 d-block"><%= current_customer.first_name + current_customer.last_name %></dev>
@@ -29,13 +29,13 @@
       
       
       <label class="form-check-label ml-3">
-        <%= f.radio_button :select_address, :'1' %>
+        <%= f.radio_button :select_address, '1' %>
         <%= "登録済み住所から選択" %></br>
         <dev class="ml-4"><%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %></dev>
       </label></br>
       
       <label class="form-check-label ml-3">
-        <%= f.radio_button :select_address, :'2' %>
+        <%= f.radio_button :select_address, '2' %>
         <%= "新しいお届け先" %></br>
         
          <form class="row">
@@ -60,9 +60,6 @@
           </form>
       
       </label>
-      
-   
-      
       
   </div>
   <div class="text-center">

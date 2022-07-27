@@ -87,7 +87,8 @@ ActiveRecord::Schema.define(version: 2022_07_18_151144) do
     t.integer "total_payment", null: false
     t.integer "payment_method", null: false
     t.integer "status", null: false
-    t.integer "select_address", null: false
+    t.integer "select_address"
+    t.integer "address_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

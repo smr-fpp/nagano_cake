@@ -22,7 +22,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   
     get '/orders/new' => 'public/orders#new', as: "orders_new"
     post '/orders/confirm' => 'public/orders#confirm', as: "orders_confirm"
-
+    get '/orders/complete' => 'public/orders#complete', as: "orders_complete"
+    get '/orders/:id' => 'public/orders#show', as: "orders_show"
+    get '/orders' => 'public/orders#index', as: "orders_index"
+    post '/orders' => 'public/orders#create', as: "orders_create"
+    
     get '/cart_items' => 'public/cart_items#index'
     post '/cart_items' => 'public/cart_items#create'
     delete 'cart_items/:id' => 'public/cart_items#destroy', as: "destroy_cart_item"
