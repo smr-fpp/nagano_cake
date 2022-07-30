@@ -1,6 +1,6 @@
 class CartItem < ApplicationRecord
-  belongs_to :item, foreign_key: "item_id"
-  belongs_to :customer, foreign_key: "customer_id"
+  belongs_to :item, foreign_key: "item_id", optional: true
+  belongs_to :customer, foreign_key: "customer_id", optional: true
   validates :amount, presence: true
   
 def subtotal

@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
-  belongs_to :genre, foreign_key: "genre_id"
+  belongs_to :genre, foreign_key: "genre_id", optional: true
   has_many :cart_items
+  has_many :order_details
   attachment :image
   
  
