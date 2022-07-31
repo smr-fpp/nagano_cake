@@ -18,7 +18,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   namespace :admin do
   resources :genres, :items, :customers
   end
-  
+  get '/admin' => 'admin/homes#top'
   
     get '/orders/new' => 'public/orders#new', as: "orders_new"
     post '/orders/confirm' => 'public/orders#confirm', as: "orders_confirm"
