@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
@@ -44,9 +45,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   
 
 
-  root to: 'homes#top'
-  get '/about' => 'homes#about'
-  get '/customers/my_page' => 'public/customers#show'
+  root to: 'public/homes#top'
+  get '/about' => 'public/homes#about'
+  get '/customers/my_page' => 'public/customers#show', as: "my_page"
   get '/customers/information/edit' => 'public/customers#edit'
   patch '/customers/information' => 'public/customers#update'
   get '/customers/quit' => 'public/customers#quit'

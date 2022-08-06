@@ -18,35 +18,52 @@
         <a class="navbar-brand" href="/">LOGO</a>
         <div class="ml-auto">
         <% if admin_signed_in? %>
-        
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <%= link_to "商品一覧", "/admin/items", class: "btn btn-outline-secondary mr-4" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "会員一覧", "/admin/customers", class: "btn btn-outline-secondary mr-4" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "注文履歴一覧", "#", class: "btn btn-outline-secondary mr-4" %>
-            </li> 
-            <li class="nav-item">
-              <%= link_to "ジャンル一覧", "/admin/genres", class: "btn btn-outline-secondary mr-4" %>
-            </li>
-            <li class="nav-item">
-              <%= button_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary mr-4" %>
-            </li>
-          </ul>
-          
+          <% if request.fullpath.include? "/admin" %>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <%= link_to "商品一覧", "/admin/items", class: "btn btn-outline-secondary mr-4" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "会員一覧", "/admin/customers", class: "btn btn-outline-secondary mr-4" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "注文履歴一覧", "/admin", class: "btn btn-outline-secondary mr-4" %>
+              </li> 
+              <li class="nav-item">
+                <%= link_to "ジャンル一覧", "/admin/genres", class: "btn btn-outline-secondary mr-4" %>
+              </li>
+              <li class="nav-item">
+                <%= button_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary mr-4" %>
+              </li>
+            </ul>
+            <% else %>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <%= link_to "マイページ", "/customers/my_page", class: "btn btn-outline-secondary mr-4" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "商品一覧", "/items", class: "btn btn-outline-secondary mr-4" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "カート", "/cart_items", class: "btn btn-outline-secondary mr-4" %>
+              </li>    
+              <li class="nav-item">
+                
+                <%= link_to 'ログアウト', destroy_customer_session_path, class: 'btn btn-outline-secondary mr-4', method: :delete %>
+              </li>
+            </ul>            
+            <% end %>
           <% elsif customer_signed_in? %>
+          
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <%= link_to "マイページ", "/customers/my_page", class: "btn btn-outline-secondary mr-4" %>
             </li>
             <li class="nav-item">
-              <%= link_to "商品一覧", "/admin/items", class: "btn btn-outline-secondary mr-4" %>
+              <%= link_to "商品一覧", "/items", class: "btn btn-outline-secondary mr-4" %>
             </li>
             <li class="nav-item">
-              <%= link_to "カート", "#", class: "btn btn-outline-secondary mr-4" %>
+              <%= link_to "カート", "/cart_items", class: "btn btn-outline-secondary mr-4" %>
             </li>    
             <li class="nav-item">
               
@@ -61,7 +78,7 @@
               <%= link_to "About", "/about", class: "btn btn-outline-secondary mr-4" %>
             </li>
             <li class="nav-item">
-              <%= link_to "商品一覧", "/admin/items", class: "btn btn-outline-secondary mr-4" %>
+              <%= link_to "商品一覧", "/items", class: "btn btn-outline-secondary mr-4" %>
             </li>
             <li class="nav-item">
               <%= link_to "新規登録", "/customers/sign_up", class: "btn btn-outline-secondary mr-4" %>
@@ -87,4 +104,7 @@
     <%= yield %>
     
   </body>
+  <footer>
+    
+  </footer>
 </html>

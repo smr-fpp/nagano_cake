@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 border py-5">
+      <p>ようこそ、ながのCAKEへ！</br>
+      このサイトは、ケーキ販売のECサイトになります。</br>
+      会員でない方も商品の閲覧はできますが、</br>
+      購入には会員登録が必要になります。</p>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <h3>新着商品</h3>
+    <div class="col-10">
+      <div class="row row-cols-4 d-flex flex-row">
+        <% @items.each do |item| %> 
+      
+          <div class="col mb-5">
+            
+            <%= link_to attachment_image_tag(item, :image, format: 'jpeg'), item_show_path(item.id) %></br>
+        
+            <%= item.name %></br>
+            <%= "￥"+item.with_tax_price.to_s(:delimited, delimiter: ',') %>
+          </div>
+
+        <% end %>
+      </div> 
+    </div> 
+    <%= link_to "全ての商品を見る>",'/items', class: "text-right" %>
+    </div>
+  </div>
+</div>
