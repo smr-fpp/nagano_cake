@@ -1,14 +1,25 @@
 class Admin::OrdersController < ApplicationController
+  before_action :authenticate_admin!
+  
   def show
     @order = Order.find(params[:id])
-    @order_details = OrderDetail.all
+    @order_details = @order.order_details
     @total = 0
   end
   
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
+    @order_details = @order.order_details
+    
+   
+    if @order.status = 1
+      @order_details.update_all(making_status: 1)
+    end
+    
+    
     redirect_to request.referer
+
   end
   
   

@@ -1,6 +1,8 @@
 class Public::CustomersController < ApplicationController
+  before_action :authenticate_customer!
+  
   def show
-    
+    @customer = current_customer
   end
 
   def edit
@@ -14,7 +16,7 @@ class Public::CustomersController < ApplicationController
   end
   
   def quit
-    
+    @customer = current_customer
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
    
   end 
@@ -39,6 +41,6 @@ class Public::CustomersController < ApplicationController
   protected
 
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :encrypted_password, :address, :telephone_number, :is_deleted)
+    params.require(:customer).permit(:email, :last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :encrypted_password, :address, :telephone_number, :is_deleted)
   end
 end
