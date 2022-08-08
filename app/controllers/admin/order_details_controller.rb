@@ -15,6 +15,7 @@ class Admin::OrderDetailsController < ApplicationController
     if @order.order_details.count == @order_details.where(making_status: 3).count
       @order.update(status: 3)
     end
+    
     redirect_to request.referer
   end
   

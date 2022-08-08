@@ -12,12 +12,12 @@ class Admin::OrdersController < ApplicationController
     @order.update(order_params)
     @order_details = @order.order_details
     
-   
-    if @order.status = 1
+    if @order.status == "confirm_payment"
       @order_details.update_all(making_status: 1)
+    else  
+      
     end
-    
-    
+
     redirect_to request.referer
 
   end
